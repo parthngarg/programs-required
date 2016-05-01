@@ -1,5 +1,31 @@
 # -*- coding: utf-8 -*-
-"""
+# model k i n e t i c p a r ame t e r s
+Vmax = 2 . 0 # mol / ( L s )
+Km = 0 . 5 # mol / L
+# ODE d e f i n i t i o n
+de f df ( s , t ) :
+d s d t = 􀀀Vmax s / (Km+s )
+r e turn d s d t
+# s e t u p t ime d i s c r e t i z a t i o n
+n = 10 # number o f t ime s t e p s
+t = numpy . l i n s p a c e ( 0 , 2 . 0 , n )
+d t = t [1]􀀀 t [ 0 ]
+# a l l o c a t e s t o r a g e spac e and s e t i n i t i a l c o n d i t i o n s
+s o l = numpy . z e r o s ( n )
+s o l [ 0 ] = 1 . 0 # i n i t i a l S i n mol / L
+f o r i in range ( 1 , n ) :
+s o l [ i ] = s o l [ i 􀀀1]+ d t  df ( s o l [ i 􀀀1] , t [ i 􀀀1])
+p y l a b . p l o t ( t , s o l )
+p y l a b . x l a b e l ( " t ime ( d ime n s i o n l e s s ) " )
+p y l a b . y l a b e l ( " c o n c e n t r a t i o n ( d ime n s i o n l e s s ) " )
+p y l a b . show ( )"""
+
+
+
+
+
+
+
 Created on Sun May 01 19:34:32 2016
 
 @author: rajivgarg
